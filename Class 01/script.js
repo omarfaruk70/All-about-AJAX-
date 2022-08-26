@@ -6,7 +6,7 @@ function loadData(){
     // creating ajax build in object that is XHR(Xml HTTP Request)
     let xhr = new XMLHttpRequest();
     // console.log(xhr)
-    xhr.open('GET', 'data.txt', true);
+    xhr.open('GET', 'data2.txt', true);
     xhr.onload = function(){
         if(this.status===200){
             console.log(this.responseText)
@@ -42,32 +42,6 @@ function loadData(){
 // 2 = request received
 // 3 = request processing 
 // 4 = request finished and response is ready 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
