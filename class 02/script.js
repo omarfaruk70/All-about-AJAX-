@@ -6,12 +6,14 @@
 document.getElementById('getData').addEventListener('click', loadjokes)
 function loadjokes(){
     let xhr = new XMLHttpRequest();
-    xhr.open('GET', 'http://api.icndb.com/jokes/random', true)
+    xhr.open('GET', 'http://api.icndb.com/jokes/random/5', true)
     xhr.onload = function(){
         if(this.status===200){
+            // console.log(this.responseText);
             let data = this.responseText;
             let output = JSON.parse(data);
-            console.log(output)
+            let joke = output.value;
+            console.log(joke)
         }
     }
     xhr.send()
