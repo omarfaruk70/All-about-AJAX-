@@ -15,19 +15,34 @@ let members = [
 ];
 // push a object to this server
 function sendData(oneMember){
-    setTimeout(function(){
-        members.push(oneMember)
-    }, 1000)
+        // members.push(oneMember)
+        let prom = new Promise(function(resolve, reject){
+            members.push(oneMember)
+            let err = true;
+            if(!err){
+                resolve();
+            }
+            else{
+                reject('hoga mara sara! Khatam')
+            }
+            // resolve();
+        });
+        return prom;
 };
 // to show or get output(all data) in your server.
 function getData(){
-    setTimeout(function(){
+    setTimeout(function(){  
         let output = "";
         members.forEach(function(item){
             output += `<li>${item.firstname} ${item.lastname}</li>` 
         });
-     document.getElementById('result').innerHTML = output;
+     document.getElementById('collection').innerHTML = output;
     }, 3000)
 };
-sendData({firstname: 'Nurul Afsar', lastname: 'Opi'});
-getData();
+sendData({firstname: 'Nurul Afsar', lastname: 'Opi'})
+// .then(getData)
+.catch(function(err){
+    console.log(err)
+});
+// ============ moral of the code ============
+// ekhane ekta error creat kora hoise. error ta thakle ki hobe ta output er maddhome dekhano hoyche.
